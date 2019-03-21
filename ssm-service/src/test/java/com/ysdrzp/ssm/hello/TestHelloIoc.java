@@ -4,9 +4,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * 创建对象的三种方式
- */
 public class TestHelloIoc {
 
     /**
@@ -44,5 +41,26 @@ public class TestHelloIoc {
         staticFactory.sayHello();
     }
 
+    /**
+     * 单例模式创建对象:在单例模式下，默认情况，未开启懒加载，启动容器，便会创建对象
+     */
+    @Test
+    public void test_scope_single_CreateObject(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        HelloIoc hello1 = (HelloIoc) context.getBean("helloIoc");
+        HelloIoc hello2 = (HelloIoc) context.getBean("helloIoc");
+        System.out.println(hello1 == hello2);
+    }
+
+    /**
+     * 多例模式创建对象:在多例模式下，无论是否开启懒加载模式，启动容器都不会创建对象，获得 bean 的时候才会创建对象。
+     */
+    @Test
+    public void test_scope_prototype_CreateObject(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        HelloIoc hello1 = (HelloIoc) context.getBean("helloIoc");
+        HelloIoc hello2 = (HelloIoc) context.getBean("helloIoc");
+        System.out.println(hello1 == hello2);
+    }
 
 }
