@@ -1,4 +1,4 @@
-package com.ysdrzp.ssm.di;
+package com.ysdrzp.ssm.di.setter;
 
 public class House {
 

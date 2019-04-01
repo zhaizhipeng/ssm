@@ -1,9 +1,15 @@
-package com.ysdrzp.ssm.di;
+package com.ysdrzp.ssm.di.setter;
 
 public class Children {
 
+    /**
+     * 性别
+     */
     private String sex;
 
+    /**
+     * 年龄
+     */
     private String name;
 
     public void setSex(String sex) {
