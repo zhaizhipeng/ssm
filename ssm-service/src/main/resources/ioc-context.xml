@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       default-autowire="byName">
+
+    <bean id="getBean" class="com.ysdrzp.ssm.ioc.GetBean"/>
+
+    <!-- 创建对象的第一种方式：利用无参构造器
+        id:唯一标识符
+        class:类的全类名  -->
+    <bean id="helloIoc" class="com.ysdrzp.ssm.ioc.HelloIoc"/>
+    <!-- 别名属性name和bean的id属性对应 -->
+    <alias name="helloIoc" alias="helloIoc2"/>
+
+    <!-- 创建对象的第二种方式：利用静态工厂方法
+        factory-method：静态工厂类的获取对象的静态方法
+        class:静态工厂类的全类名 -->
+    <bean id="helloStaticFactory" factory-method="getInstances" class="com.ysdrzp.ssm.ioc.HelloStaticFactory" />
+
+    <!-- 创建对象的第三种方式：利用实例工厂方法
+        factory-bean:指定当前Spring中包含工厂方法的beanID
+        factory-method:工厂方法名称  -->
+    <bean id="instanceFactory" class="com.ysdrzp.ssm.ioc.HelloInstanceFactory" />
+    <bean id="instance" factory-bean="instanceFactory" factory-method="getInstance" />
+
+    <!-- 创建对象的第四种方式：FactoryBean接口实例化 -->
+    <bean id="helloIoc4" class="com.ysdrzp.ssm.ioc.HelloIocFactoryBean"></bean>
+
+</beans>

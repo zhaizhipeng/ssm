@@ -1,6 +1,6 @@
-package com.ysdrzp.ssm.hello;
+package com.ysdrzp.ssm.ioc;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
@@ -14,7 +14,7 @@ public class TestGetBean {
     @Test
     public void testGetBean(){
         // 1、加载配置文件
-        Resource resource = new ClassPathResource("applicationContext.xml");
+        Resource resource = new ClassPathResource("ioc-context.xml");
         // 2、创建Sring容器
         BeanFactory beanFactory = new XmlBeanFactory(resource);
         // getBean 的三种方式

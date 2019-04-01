@@ -1,10 +1,10 @@
-package com.ysdrzp.ssm.hello;
+package com.ysdrzp.ssm.ioc;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestHelloIoc {
+public class TestIoc {
 
     /**
      * 方式一：无参构造器方式
@@ -12,7 +12,7 @@ public class TestHelloIoc {
     @Test
     public void testCreateObjectByConstrutor(){
         // 1、启动 spring 容器
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc-context.xml");
         // 2、从 spring 容器中取出数据
         HelloIoc IOC = (HelloIoc) context.getBean("helloIoc");
         // 3、通过对象调用方法        IOC.sayHello();
@@ -26,7 +26,7 @@ public class TestHelloIoc {
      */
     @Test
     public void createObjectStaticFactory(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc-context.xml");
         HelloIoc helloIoc = (HelloIoc) context.getBean("helloStaticFactory");
         helloIoc.sayHello();
     }
@@ -36,9 +36,19 @@ public class TestHelloIoc {
      */
     @Test
     public void createObjectInstanceFactory(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc-context.xml");
         HelloIoc staticFactory = (HelloIoc) context.getBean("instance");
         staticFactory.sayHello();
+    }
+
+    /**
+     * 方式四：FactoryBean接口实例化
+     */
+    @Test
+    public void createObjectFactoryBean(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc-context.xml");
+        HelloIoc helloIoc = (HelloIoc) context.getBean("helloIoc");
+        helloIoc.sayHello();
     }
 
     /**
@@ -46,7 +56,7 @@ public class TestHelloIoc {
      */
     @Test
     public void test_scope_single_CreateObject(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc-context.xml");
         HelloIoc hello1 = (HelloIoc) context.getBean("helloIoc");
         HelloIoc hello2 = (HelloIoc) context.getBean("helloIoc");
         System.out.println(hello1 == hello2);
@@ -57,7 +67,7 @@ public class TestHelloIoc {
      */
     @Test
     public void test_scope_prototype_CreateObject(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc-context.xml");
         HelloIoc hello1 = (HelloIoc) context.getBean("helloIoc");
         HelloIoc hello2 = (HelloIoc) context.getBean("helloIoc");
         System.out.println(hello1 == hello2);

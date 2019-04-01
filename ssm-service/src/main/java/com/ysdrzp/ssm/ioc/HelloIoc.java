@@ -1,4 +1,4 @@
-package com.ysdrzp.ssm.hello;
+package com.ysdrzp.ssm.ioc;
 
 public class HelloIoc {
 

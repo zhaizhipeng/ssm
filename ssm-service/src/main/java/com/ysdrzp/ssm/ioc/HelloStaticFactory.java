@@ -1,4 +1,4 @@
-package com.ysdrzp.ssm.hello;
+package com.ysdrzp.ssm.ioc;
 
 /**
  * 静态工厂
