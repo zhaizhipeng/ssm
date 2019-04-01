@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       default-autowire="byName">
+
+    <!-- setter方式:注入常量 -->
+    <bean id="house" class="com.ysdrzp.ssm.di.House">
+        <property name="area" value="120"/>
+        <property name="price" value="380.00"/>
+    </bean>
+
+    <!-- setter方式:注入对象 -->
+    <bean id="family" class="com.ysdrzp.ssm.di.Family">
+        <property name="husband" value="李雷"/>
+        <property name="wife" value="韩梅梅"/>
+        <property name="house" ref="house"/>
+        <!-- setter方式：注入集合 -->
+        <property name="children">
+            <list>
+                <bean id="son" class="com.ysdrzp.ssm.di.Children">
+                    <property name="name" value="等等"/>
+                    <property name="sex" value="男"/>
+                </bean>
+                <bean id=" daughter" class="com.ysdrzp.ssm.di.Children">
+                    <property name="name" value="花花"/>
+                    <property name="sex" value="女"/>
+                </bean>
+            </list>
+        </property>
+        <property name="arrays">
+            <array>
+                <value>array1</value>
+                <value>array2</value>
+                <value>array3</value>
+            </array>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="key1" value="value1"></entry>
+                <entry key="key2" value="value2"></entry>
+                <entry key="key3" value="value3"></entry>
+            </map>
+        </property>
+        <property name="set">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+                <value>set3</value>
+            </set>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="prop1">pVall1</prop>
+                <prop key="prop2">pVall2</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
