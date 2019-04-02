@@ -17,4 +17,7 @@
     <!-- Di注解解析器 -->
     <context:annotation-config/>
 
+    <!-- 引入文件 -->
+    <context:property-placeholder location="classpath:server.properties" ignore-unresolvable="true"/>
+
 </beans>
