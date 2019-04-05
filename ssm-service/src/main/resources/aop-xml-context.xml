@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd "
+       default-autowire="byName">
+
+    <bean id="txManager" class="com.ysdrzp.ssm.aop.xml.TransactionManager"/>
+
+    <bean id="employeeDao" class="com.ysdrzp.ssm.aop.xml.EmployeeDaoImpl"/>
+
+    <bean id="employeeServiceImpl" class="com.ysdrzp.ssm.aop.xml.EmployeeServiceImpl">
+        <property name="employeeDao" ref="employeeDao"/>
+    </bean>
+
+    <!-- 配置AOP -->
+    <aop:config>
+        <!-- 配置切面 -->
+        <aop:aspect ref="txManager">
+            <!-- 配置切入点 -->
+            <aop:pointcut id="txPoint" expression="execution(* com.ysdrzp.ssm.aop.xml.*ServiceImpl..*(..))"/>
+            <!-- 配置增强-->
+            <!-- 前置增强 -->
+            <!--<aop:before method="begin" pointcut-ref="txPoint"/>
+            &lt;!&ndash; 后置增强 &ndash;&gt;
+            <aop:after-returning method="commit" pointcut-ref="txPoint"/>
+            &lt;!&ndash; 异常增强 &ndash;&gt;
+            <aop:after-throwing method="rollBack" pointcut-ref="txPoint"/>
+            &lt;!&ndash; 最终增强 &ndash;&gt;
+            <aop:after method="close" pointcut-ref="txPoint"/>-->
+            <!-- 环绕通知 -->
+            <aop:around method="around" pointcut-ref="txPoint"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
