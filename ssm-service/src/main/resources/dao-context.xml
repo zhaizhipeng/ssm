@@ -19,29 +19,19 @@
         <property name="url" value="${jdbc.url}" />
         <property name="username" value="${jdbc.username}" />
         <property name="password" value="${jdbc.password}" />
-        <property name="initialSize" value="${druid.initialSize}" />
-        <property name="minIdle" value="${druid.minIdle}" />
-        <property name="maxActive" value="${druid.maxActive}" />
-        <property name="removeAbandoned" value="false" />
-        <property name="removeAbandonedTimeout" value="3600" />
-        <property name="logAbandoned" value="false" />
-        <property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}" />
-        <property name="minEvictableIdleTimeMillis" value="${druid.minEvictableIdleTimeMillis}" />
-        <property name="validationQuery" value="${druid.validationQuery}" />
-        <property name="testWhileIdle" value="${druid.testWhileIdle}" />
-        <property name="testOnBorrow" value="${druid.testOnBorrow}" />
-        <property name="testOnReturn" value="${druid.testOnReturn}" />
-        <property name="poolPreparedStatements" value="${druid.poolPreparedStatements}" />
-        <property name="maxPoolPreparedStatementPerConnectionSize" value="${druid.maxPoolPreparedStatementPerConnectionSize}" />
     </bean>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" abstract="false"  lazy-init="false">
+    <!--<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" abstract="false"  lazy-init="false">
         <property name="dataSource">
             <ref bean="dataSource" />
         </property>
-    </bean>
+    </bean>-->
 
     <bean id="employeeDaoImpl" class="com.ysdrzp.ssm.dao.EmployeeDaoImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="employeeDaoSupportImpl" class="com.ysdrzp.ssm.dao.EmployeeDaoSupportImpl">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

@@ -48,9 +48,8 @@ public class App {
     @Test
     public void testListAll(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("dao-context.xml");
-        IEmployeeDao employeeDao = (IEmployeeDao) applicationContext.getBean("employeeDaoImpl");
+        IEmployeeDao employeeDao = (IEmployeeDao) applicationContext.getBean("employeeDaoSupportImpl");
         System.out.println(employeeDao.listAll());
     }
-
 
 }

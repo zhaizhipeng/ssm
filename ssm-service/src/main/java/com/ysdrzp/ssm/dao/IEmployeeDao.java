@@ -17,5 +17,4 @@ public interface IEmployeeDao {
     Employee get(Long id);
 
     List<Employee> listAll();
-
 }
