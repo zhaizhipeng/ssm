@@ -11,4 +11,18 @@
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd "
        default-autowire="byName">
 
+    <bean id="placeholderConfig"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:dbconfig.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    </bean>
+
+    <context:component-scan base-package="com.ysdrzp.redis.**"/>
+
+    <import resource="applicationContext-datasource.xml"/>
+
 </beans>
