@@ -12,15 +12,15 @@
        default-autowire="byName">
 
     <!-- Ioc注解解析器-->
-    <context:component-scan base-package="com.ysdrzp.ssm.aop.proxy.dynamic"/>
+    <context:component-scan base-package="com.ysdrzp.aop.proxy.dynamic"/>
 
     <!-- Di注解解析器 -->
     <context:annotation-config/>
 
-    <bean id="txManager" class="com.ysdrzp.ssm.aop.proxy.dynamic.TransactionManager"/>
+    <bean id="txManager" class="com.ysdrzp.aop.proxy.dynamic.TransactionManager"/>
 
-    <bean id="employeeDao" class="com.ysdrzp.ssm.aop.proxy.dynamic.EmployeeDaoImpl"/>
+    <bean id="employeeDao" class="com.ysdrzp.aop.proxy.dynamic.EmployeeDaoImpl"/>
 
-    <bean id="employeeServiceImpl" class="com.ysdrzp.ssm.aop.proxy.dynamic.EmployeeServiceImpl"/>
+    <bean id="employeeServiceImpl" class="com.ysdrzp.aop.proxy.dynamic.EmployeeServiceImpl"/>
 
 </beans>

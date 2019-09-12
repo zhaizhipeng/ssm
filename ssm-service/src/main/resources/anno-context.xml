@@ -12,7 +12,7 @@
        default-autowire="byName">
 
     <!-- Ioc注解解析器 -->
-    <context:component-scan base-package="com.ysdrzp.ssm.anno"/>
+    <context:component-scan base-package="com.ysdrzp.anno"/>
 
     <!-- Di注解解析器 -->
     <context:annotation-config/>

@@ -27,11 +27,11 @@
         </property>
     </bean>-->
 
-    <bean id="employeeDaoImpl" class="com.ysdrzp.ssm.dao.EmployeeDaoImpl">
+    <bean id="employeeDaoImpl" class="com.ysdrzp.dao.EmployeeDaoImpl">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="employeeDaoSupportImpl" class="com.ysdrzp.ssm.dao.EmployeeDaoSupportImpl">
+    <bean id="employeeDaoSupportImpl" class="com.ysdrzp.dao.EmployeeDaoSupportImpl">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

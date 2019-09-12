@@ -14,12 +14,12 @@
     <!-- Di注解解析器 -->
     <context:annotation-config/>
 
-    <bean id="txManager" class="com.ysdrzp.ssm.aop.proxy.statics.TransactionManager"/>
+    <bean id="txManager" class="com.ysdrzp.aop.proxy.statics.TransactionManager"/>
 
-    <bean id="employeeDao" class="com.ysdrzp.ssm.aop.proxy.statics.EmployeeDaoImpl"/>
+    <bean id="employeeDao" class="com.ysdrzp.aop.proxy.statics.EmployeeDaoImpl"/>
 
-    <bean id="employeeServiceImpl" class="com.ysdrzp.ssm.aop.proxy.statics.EmployeeServiceImpl"/>
+    <bean id="employeeServiceImpl" class="com.ysdrzp.aop.proxy.statics.EmployeeServiceImpl"/>
 
-    <bean id="employeeServiceImplProxy" class="com.ysdrzp.ssm.aop.proxy.statics.EmployeeServiceImplProxy"/>
+    <bean id="employeeServiceImplProxy" class="com.ysdrzp.aop.proxy.statics.EmployeeServiceImplProxy"/>
 
 </beans>

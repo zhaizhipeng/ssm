@@ -11,11 +11,11 @@
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd "
        default-autowire="byName">
 
-    <bean id="txManager" class="com.ysdrzp.ssm.aop.xml.TransactionManager"/>
+    <bean id="txManager" class="com.ysdrzp.aop.xml.TransactionManager"/>
 
-    <bean id="employeeDao" class="com.ysdrzp.ssm.aop.xml.EmployeeDaoImpl"/>
+    <bean id="employeeDao" class="com.ysdrzp.aop.xml.EmployeeDaoImpl"/>
 
-    <bean id="employeeServiceImpl" class="com.ysdrzp.ssm.aop.xml.EmployeeServiceImpl">
+    <bean id="employeeServiceImpl" class="com.ysdrzp.aop.xml.EmployeeServiceImpl">
         <property name="employeeDao" ref="employeeDao"/>
     </bean>
 
@@ -24,7 +24,7 @@
         <!-- 配置切面 -->
         <aop:aspect ref="txManager">
             <!-- 配置切入点 -->
-            <aop:pointcut id="txPoint" expression="execution(* com.ysdrzp.ssm.aop.xml.*ServiceImpl..*(..))"/>
+            <aop:pointcut id="txPoint" expression="execution(* com.ysdrzp.aop.xml.*ServiceImpl..*(..))"/>
             <!-- 配置增强-->
             <!-- 前置增强 -->
             <!--<aop:before method="begin" pointcut-ref="txPoint"/>
