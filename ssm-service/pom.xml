@@ -19,7 +19,7 @@
         <!-- 指明使用utf-8编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- spring版本号 -->
-        <spring.version>4.3.2.RELEASE</spring.version>
+        <spring.version>5.2.1.RELEASE</spring.version>
         <!-- 日志文件管理包版本 -->
         <log4j.version>1.2.17</log4j.version>
         <!-- junit包版本 -->
